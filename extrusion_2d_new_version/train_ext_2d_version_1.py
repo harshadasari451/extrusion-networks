@@ -61,7 +61,7 @@ len_val_dataset = len(val_exp1_dataset) + len(val_exp2_dataset) + len(val_exp3_d
 unet_1d_weights_path = '/home/CAMPUS/hdasari/apebench_experiments/mse_experiments/vanilla_1d/checkpoints/new_june19_mse_epoch_20_unet_1d_weights_biases.pth'
 
 
-device = "cuda:0" if torch.cuda.is_available() else "cpu"
+device = "cuda:3" if torch.cuda.is_available() else "cpu"
 model = PrimaryNetwork(unet_1d_weights_path=unet_1d_weights_path, device=device).to(device)
 criterion = nn.MSELoss(reduction='mean')
 optimizer = optim.Adam(model.parameters(), lr=1e-3)
@@ -70,7 +70,7 @@ epochs = 30
 
 with open(os.path.join(results_storing_path, 'training_log.txt'), "a") as f:
     f.write(f"{'='*50}\n")
-    f.write(f"Training data samples : {exp1_data.shape[0]}")
+    f.write(f"Training data samples : {exp1_data.shape[0]}\n")
     f.write(f"Model: {model.__class__.__name__}\n")
     f.write(f"Device: {device}\n")
     f.write(f"Optimizer: {optimizer.__class__.__name__}\n")
