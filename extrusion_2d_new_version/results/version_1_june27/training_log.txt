@@ -1,5 +1,6 @@
 ==================================================
-Training data samples : 500Model: PrimaryNetwork
+Training data samples : 500
+Model: PrimaryNetwork
 Device: cuda:0
 Optimizer: Adam
 Loss Function: MSELoss
