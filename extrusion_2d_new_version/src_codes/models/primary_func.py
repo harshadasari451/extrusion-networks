@@ -23,7 +23,7 @@ class upconv_Embedding(nn.Module):
 
         for i in range(h):
             for j in range(k):
-                for l in range(3):  
+                for l in range(2):  
                     self.z_list.append(Parameter(torch.fmod(torch.randn(self.z_dim, device=device), 2)))
         
        
